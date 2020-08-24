@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>{% if name %}{{ name }}{% else %}Enter Information{% endif %}.</h1>
+    </div>
+    {% if loggedin!=1 %}
+        {{ wtf.quick_form(form) }}
+        <br><br>
+		<h1>News</h1>
+		<p>1. 2020.08.23 晚上受到学校断网影响，19点未能成功填报，21点左右已经补了一次，请各位在上方登录后查看日志或检查自己微信企业号的晨午晚检。</p>
+		<br><br>
+        <h1>Announcement</h1>
+        <p>1. 输入统一身份认证账号和密码即可自动填写晨午晚检~</p>
+        <p>2. 虽然是明文POST的账号和密码，但传输过程中使用了HTTPS，确保了传输安全</p>
+        <p>3. 尽管做了详尽的安全措施，但还是希望各位安全大佬手下留情！😭</p>
+		<p>4. 本站仅供学习交流，相关代码将在github公开。切勿用于非法用途！</p>
+    {% endif %}
+    {% if loggedin==1 %}
+        <div>
+            <h2>Q&A</h2>
+            <p>首次登录成功后就开始每天自动填写晨午晚检，历史记录可在此查看.</p>
+            <p>每日自动填写时间为：7:10, 7:30, 12:10, 12:30, 19:10, 19:30</p>
+            <p>每个时间段尝试填写两次，确保万无一失</p>
+            <p>如果要停止使用该自动化程序，修改自己的统一身份认证密码即可</p>
+            <p>如果改完密码又反悔了，可以改回原密码，或者用新密码重新登录一次本网站~</p>
+            <br><br>
+            {% if logfile %}
+                <h2>Logs</h2><br>
+                {{ logfile|safe }}
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

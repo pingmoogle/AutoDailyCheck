@@ -1,0 +1,7 @@
+requests
+flask-bootstrap
+flask-wtf
+gunicorn
+gevent
+greenlet
+eventlet

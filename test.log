@@ -1,0 +1,389 @@
+nohup: ignoring input
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:8099/ (Press CTRL+C to quit)
+127.0.0.1 - - [23/Aug/2020 21:07:48] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:08:18] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:08:25] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:08:54] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:09:13] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:09:31] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:10:16] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:31:36] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:32:58] "[37mGET / HTTP/1.0[0m" 200 -
+[2020-08-23 21:34:00,661] ERROR in app: Exception on / [POST]
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f590b42d470>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590b42d470>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/soowin/flaskProject/app.py", line 23, in index
+    if name != None and Check.checkIDResult(name, pswd):
+  File "/home/soowin/flaskProject/classes.py", line 20, in checkIDResult
+    data={'username': uid, 'password': pswd}
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 578, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590b42d470>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+127.0.0.1 - - [23/Aug/2020 21:34:00] "[35m[1mPOST / HTTP/1.0[0m" 500 -
+[2020-08-23 21:34:19,093] ERROR in app: Exception on / [POST]
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f590b4398d0>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590b4398d0>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/soowin/flaskProject/app.py", line 23, in index
+    if name != None and Check.checkIDResult(name, pswd):
+  File "/home/soowin/flaskProject/classes.py", line 20, in checkIDResult
+    data={'username': uid, 'password': pswd}
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 578, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590b4398d0>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+127.0.0.1 - - [23/Aug/2020 21:34:19] "[35m[1mPOST / HTTP/1.0[0m" 500 -
+[2020-08-23 21:35:16,437] ERROR in app: Exception on / [POST]
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f590b6a5a58>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590b6a5a58>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/soowin/flaskProject/app.py", line 23, in index
+    if name != None and Check.checkIDResult(name, pswd):
+  File "/home/soowin/flaskProject/classes.py", line 20, in checkIDResult
+    data={'username': uid, 'password': pswd}
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 578, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590b6a5a58>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+127.0.0.1 - - [23/Aug/2020 21:35:16] "[35m[1mPOST / HTTP/1.0[0m" 500 -
+127.0.0.1 - - [23/Aug/2020 21:36:12] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:36:14] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:36:16] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 21:38:29] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:38:29] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:38:29] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 21:38:55] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:39:04] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:39:35] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:39:36] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:39:37] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+[2020-08-23 21:39:46,773] ERROR in app: Exception on / [POST]
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 84, in create_connection
+    raise err
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/connection.py", line 74, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+    conn.connect()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 309, in connect
+    conn = self._new_conn()
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connection.py", line 172, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f590a414dd8>: Failed to establish a new connection: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/connectionpool.py", line 727, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/soowin/.local/lib/python3.6/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590a414dd8>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/soowin/.local/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/soowin/flaskProject/app.py", line 23, in index
+    if name != None and Check.checkIDResult(name, pswd):
+  File "/home/soowin/flaskProject/classes.py", line 20, in checkIDResult
+    data={'username': uid, 'password': pswd}
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 578, in post
+    return self.request('POST', url, data=data, json=json, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/soowin/.local/lib/python3.6/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='xxcapp.xidian.edu.cn', port=443): Max retries exceeded with url: /uc/wap/login/check (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f590a414dd8>: Failed to establish a new connection: [Errno 110] Connection timed out',))
+127.0.0.1 - - [23/Aug/2020 21:39:46] "[35m[1mPOST / HTTP/1.0[0m" 500 -
+127.0.0.1 - - [23/Aug/2020 21:40:11] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:43:26] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:43:31] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:43:43] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:47:03] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:47:19] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:48:27] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:48:27] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:48:30] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 21:58:49] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:58:49] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 21:58:50] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:08:42] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:08:42] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:09:19] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:09:19] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:09:21] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:10:12] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:10:13] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:12:06] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:12:06] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:12:09] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:16:12] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:19:53] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:19:53] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:19:57] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:22:49] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:22:49] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:22:50] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:29:12] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:29:12] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:29:12] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:29:14] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:29:46] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:29:46] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:29:49] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:29:50] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:31:36] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:31:36] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:32:46] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:32:46] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:32:49] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:32:56] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:32:59] "[37mGET /static/pics/alipayqrcode.jpg?mType=Other HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:32:59] "[37mGET /static/pics/alipayqrcode.jpg HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:35:54] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:35:55] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:35:56] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:39:23] "[37mGET /static/pics/alipayqrcode.jpg HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:39:29] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:39:31] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:39:32] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:39:33] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:39:37] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:40:12] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:11] "[37mGET /static/pics/alipayqrcode.jpg HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:21] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:21] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:27] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:41:29] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:29] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:34] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:41:57] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:41:58] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:42:01] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:42:04] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:42:11] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:48:21] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:48:21] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 22:48:24] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 22:48:25] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 23:03:31] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:03:31] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:03:36] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [23/Aug/2020 23:03:43] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:03:44] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:03:45] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:03:46] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:48:29] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:48:30] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [23/Aug/2020 23:48:34] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [24/Aug/2020 01:12:24] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 01:12:24] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 01:12:41] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [24/Aug/2020 01:28:38] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 01:28:38] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 01:49:43] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 02:16:07] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 04:21:16] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 04:21:16] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 04:21:18] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [24/Aug/2020 04:21:50] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:32:38] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:32:38] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [24/Aug/2020 06:33:07] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:33:30] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:33:30] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [24/Aug/2020 06:33:46] "[37mPOST / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:33:51] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:33:51] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 06:33:52] "[33mGET /favicon.ico HTTP/1.0[0m" 404 -
+127.0.0.1 - - [24/Aug/2020 07:27:14] "[37mGET / HTTP/1.0[0m" 200 -
+127.0.0.1 - - [24/Aug/2020 07:27:15] "[37mGET /static/pics/alipayqrcode.webp HTTP/1.0[0m" 200 -
