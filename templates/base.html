@@ -17,7 +17,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">还是首页（没有的按钮）</a></li>
+                    <li><a href="/">还是首页（没用的按钮）</a></li>
                 </ul>
             </div>
         </div>
@@ -26,10 +26,18 @@
 
 {% block content %}
     <div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    </div>
+    <div class="container">
         {% block page_content %}{% endblock %}
     <br><br><br><br><br><br>
         <div>
-            <h2>赞助</h2>
+            <h1>赞助</h1>
             <p>广告位招租~联系 soowindance@gmail.com</p>
             <p>扫二维码请我吃鸡腿，谢谢老板！</p>
             <a href="https://qr.alipay.com/tsx12743k6svfxdkergvf01"><img src="/static/pics/alipayqrcode.webp" alt="QRcode" width="30%"></a>

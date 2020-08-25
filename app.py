@@ -1,6 +1,6 @@
 # -*- encoding: UTF-8 -*-
 
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
 
 from classes import NameForm, Check, Execute
@@ -20,9 +20,9 @@ def index():
         pswd = form.pswd.data
         form.name.data = ''
         form.pswd.data = ''
-    if name == None:
+    if name is None:
         return render_template("index.html", form=form, name=None)
-    if name != None and Check.checkIDResult(name, pswd):
+    if name is not None and Check.checkIDResult(name, pswd):
         if Check.userInJson(name, pswd):
             try:
                 with open("logs/"+name+".log", "r") as logfd:
@@ -36,7 +36,9 @@ def index():
             return render_template("index.html", form=form, name="Hello, " + name, loggedin=1)
 
     else:
-        return render_template("index.html", form=form, name="Failed to login.")
+        # return render_template("index.html", form=form, name="Failed to login.")
+        flash("Failed to Login.")
+        return redirect(url_for('index'))
 
 
 @app.errorhandler(404)
