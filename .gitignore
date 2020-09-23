@@ -1,3 +1,5 @@
 /logs/
 /server/users.json
 /static/pics/
+*.pyc
+*.log

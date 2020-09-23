@@ -25,3 +25,9 @@ gunicorn 配合gevent 可以高效代理WSGI应用程序
 gunicorn -c config.py app:app
 ```
 也可以使用PythonAnyWhere、Heroku、Azure等部署，详情参考：[Deployment Options](https://flask.palletsprojects.com/en/1.1.x/deploying/)
+
+## TODO
+1. 首次接触Flask所以app.py写的非常乱，希望有好心人PR
+2. 输入过滤在做了，也希望有好心人PR
+  
+（我是大懒蛋）
