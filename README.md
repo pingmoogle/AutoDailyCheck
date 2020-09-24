@@ -1,4 +1,18 @@
-# AutoDailyCheck
+# AutoDailyCheck 个人使用方法
+
+## 简单上手
+
+1. 首先你需要一台电脑或虚拟机，安装python3和pip
+2. 使用pip下载requests库
+3. 只需下载该仓库内的personal.py文件，修改uname和upswd为自己的学号和密码
+4. 定时运行这个py代码即可（例如使用cron或Windows计划任务）
+
+
+
+
+
+
+# AutoDailyCheck 多人项目构建
 每日自动晨午晚检，解放双手~  
 Powered by Python + Flask
 
@@ -29,5 +43,5 @@ gunicorn -c config.py app:app
 ## TODO
 1. 首次接触Flask所以app.py写的非常乱，希望有好心人PR
 2. 输入过滤在做了，也希望有好心人PR
-  
+
 （我是大懒蛋）
