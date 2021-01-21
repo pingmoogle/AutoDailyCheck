@@ -1,3 +1,5 @@
+# 如需使用请自行更改地址，本Repository不再更新
+
 # AutoDailyCheck 个人使用方法
 
 ## 简单上手
